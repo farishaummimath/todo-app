@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'; // Updated CSS import
-
-// Re-define Task type (or import from shared location)
+import './style.css';
 type Task = {
   id: number;
   title: string;

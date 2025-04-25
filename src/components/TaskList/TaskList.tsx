@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css'; 
 import TaskItem from '../TaskItem/TaskItem';
 
@@ -36,10 +36,23 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
 
   // State to manage section visibility
   const [sectionsVisible, setSectionsVisible] = useState<SectionVisibility>({
-    InProgress: true, // Start with In Progress open
-    Pending: false,
-    Completed: false,
+    InProgress: true,
+    Pending: true,
+    Completed: true,
   });
+
+  // Effect to update section visibility based on the active filter
+  useEffect(() => {
+    if (activeFilter === 'All') {
+      setSectionsVisible({ InProgress: true, Pending: true, Completed: true });
+    } else {
+      setSectionsVisible({
+        InProgress: activeFilter === 'In Progress',
+        Pending: activeFilter === 'Pending',
+        Completed: activeFilter === 'Completed',
+      });
+    }
+  }, [activeFilter]);
 
   // Function to toggle section visibility
   const toggleSection = (sectionName: keyof SectionVisibility) => {

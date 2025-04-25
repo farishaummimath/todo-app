@@ -59,7 +59,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
   const statusOptions: Task['status'][] = ['Pending', 'In Progress', 'Completed'];
 
   return (
-    // Use AddTaskForm container/form classes for base styling
+    // Used AddTaskForm container/form classes for base styling
     <div className="add-task-container"> 
       <form onSubmit={handleSubmit} className="add-task-form"> 
         <div className="form-group">
@@ -91,7 +91,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
               className="status-select-display"
               onClick={() => setIsStatusDropdownOpen(!isStatusDropdownOpen)}
             >
-               {/* Wrap dot and text in a span for left alignment */}
                <span style={{ display: 'flex', alignItems: 'center', flexGrow: 1, textAlign: 'left' }}>
                  <span className="status-dot" style={{ backgroundColor: getStatusColor(currentStatus) }}></span>
                  <span>{currentStatus}</span>
@@ -122,7 +121,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
 
         <div className="form-actions">
           <button type="button" onClick={onCancel} className="cancel-button">Cancel</button>
-          <button type="submit" className="add-button">Update</button> {/* Changed Button Text */}
+          <button type="submit" className="add-button">Update</button> 
         </div>
       </form>
     </div>
