@@ -18,6 +18,7 @@
 .task-item:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #F7F7F7;
+  cursor: pointer;
 }
 
 .task-item-main {

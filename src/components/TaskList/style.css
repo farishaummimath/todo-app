@@ -64,6 +64,7 @@
   color: #333; /* Darker text color */
   width: 100%; /* Ensure it takes full width */
   box-sizing: border-box; /* Include padding/border in width */
+  border: none; /* Explicitly remove default button border */
 }
 
 .section-header span:first-child {
