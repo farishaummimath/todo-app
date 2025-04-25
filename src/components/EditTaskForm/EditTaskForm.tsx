@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './AddTaskForm.css'; // Keep for base form styles
-import './EditTaskForm.css'; // Import the specific styles
+import '../AddTaskForm/style.css'; // Use AddTaskForm styles as base
+import './style.css'; // Import specific styles
 
 // Re-define Task type
 type Task = {
@@ -61,8 +61,9 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
   const statusOptions: Task['status'][] = ['Pending', 'In Progress', 'Completed'];
 
   return (
-    <div className="add-task-container"> {/* Reusing class name */}
-      <form onSubmit={handleSubmit} className="add-task-form"> {/* Reusing class name */}
+    // Use AddTaskForm container/form classes for base styling
+    <div className="add-task-container"> 
+      <form onSubmit={handleSubmit} className="add-task-form"> 
         <div className="form-group">
           <label htmlFor="task-title">Title</label>
           <input

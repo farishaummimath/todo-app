@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import TaskList from './components/TaskList'
-import AddTaskForm from './components/AddTaskForm'
-import EditTaskForm from './components/EditTaskForm'
-import Header from './components/Header' // Import the new Header component
+import TaskList from './components/TaskList/TaskList'
+import AddTaskForm from './components/AddTaskForm/AddTaskForm'
+import EditTaskForm from './components/EditTaskForm/EditTaskForm'
+import Header from './components/Header/Header'
 
 // Define the Task type
 type Task = {

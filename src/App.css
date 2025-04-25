@@ -12,21 +12,22 @@ body {
 .app-container {
   width: 500px; /* Set fixed width */
   margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff; /* White container background */
+  /* Remove padding for now, can be added to inner elements if needed */
+  /* padding: 20px; */
+   background-color: #ffffff; 
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative; /* Needed for FAB positioning */
-  padding-bottom: 90px; /* Increased padding slightly for button space */
-  min-height: 450px; /* Add minimum height */
+  padding-bottom: 90px;
+  min-height: 450px;
 }
 
 .app-header {
   background-color: #0056b3; /* Dark blue header like the design */
   color: white;
   padding: 15px 20px;
-  border-radius: 8px 8px 0 0; /* Match container radius */
-  margin: -20px -20px 20px -20px; /* Extend to container edges */
+  border-radius: 8px 8px 0 0; /* Keep top rounding */
+  margin: 0 0 20px 0;
 }
 
 .app-header h1 {
@@ -40,13 +41,15 @@ body {
   position: absolute; /* Position relative to app-container */
   bottom: 20px;       /* Adjust position from bottom */
   right: 20px;        /* Adjust position from right */
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 60px; /* Ensure width */
+  height: 60px; /* Ensure height is equal to width */
+  border-radius: 50%; /* Correct value for a circle */
+  box-sizing: border-box; /* Ensure padding/border are included in dimensions */
   background-color: #0056b3; /* Match header blue */
   color: white;
   font-size: 2rem;
-  border: none;
+  border: none; /* Ensure no border is distorting */
+  padding: 0; /* Ensure no padding is distorting */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   display: flex;

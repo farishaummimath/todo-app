@@ -1,0 +1,79 @@
+.add-task-container {
+  padding: 0 20px 20px 20px; /* Add padding back now that header is external */
+  background-color: #fff; /* Ensure white background for form area */
+  border-radius: 0 0 8px 8px; /* Keep bottom rounding if applicable */
+}
+
+/* Remove old header styles if they exist (they shouldn't after previous refactor) */
+/* .add-task-header { ... } */
+/* .back-button { ... } */
+
+.add-task-form {
+  /* padding: 20px; */ /* Padding is now on container */
+  /* background-color: #fff; */ /* Background now on container */
+  /* border-radius: 0 0 8px 8px; */ /* Radius now on container */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+  text-align: left;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  /* width: calc(100% - 22px); */ /* Use box-sizing */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cancel-button {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.cancel-button:hover {
+  background-color: #f0f0f0;
+}
+
+.add-button {
+  background-color: #0056b3; /* Match header blue */
+  color: white;
+  border: none;
+}
+
+.add-button:hover {
+  background-color: #004494; /* Darker blue on hover */
+} 

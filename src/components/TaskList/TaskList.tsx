@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './TaskList.css'; // We'll create this CSS file next
-import TaskItem from './TaskItem'; // Import TaskItem
+import './style.css'; // Updated CSS import
+import TaskItem from '../TaskItem/TaskItem'; // Updated TaskItem import path
 
 // Define the Task type again (or import from App.tsx if refactored later)
 type Task = {
@@ -14,7 +14,6 @@ type Task = {
 // Define the props for TaskList
 interface TaskListProps {
   tasks: Task[];
-  // TODO: Define actual functions later
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onStatusChange: (id: number, newStatus: Task['status']) => void;
@@ -27,9 +26,15 @@ type SectionVisibility = {
   Completed: boolean;
 };
 
+// Define possible filter statuses
+type FilterStatus = 'All' | Task['status'];
+const filterOptions: FilterStatus[] = ['All', 'Pending', 'In Progress', 'Completed'];
+
 const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusChange }) => {
   // State for search query
   const [searchQuery, setSearchQuery] = useState('');
+  // State for active status filter
+  const [activeFilter, setActiveFilter] = useState<FilterStatus>('All');
 
   // State to manage section visibility
   const [sectionsVisible, setSectionsVisible] = useState<SectionVisibility>({
@@ -46,20 +51,22 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
     }));
   };
 
-  // Filter tasks based on search query (case-insensitive)
-  const filteredTasks = tasks.filter(task =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    task.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter tasks based on selected filter AND search query
+  const filteredTasks = tasks
+    .filter(task => activeFilter === 'All' || task.status === activeFilter) // Filter by status first
+    .filter(task => // Then filter by search query
+      task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      task.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
-  // Group filtered tasks by status
+  // Group filtered tasks by status (using the already filtered list)
   const inProgressTasks = filteredTasks.filter(task => task.status === 'In Progress');
   const pendingTasks = filteredTasks.filter(task => task.status === 'Pending');
   const completedTasks = filteredTasks.filter(task => task.status === 'Completed');
 
   return (
     <div className="task-list-container">
-      {/* Search Bar - Controlled Input */}
+      {/* Search Bar */}
       <input
         type="text"
         placeholder="Search To-Do"
@@ -68,10 +75,23 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
         onChange={(e) => setSearchQuery(e.target.value)}
       />
 
+      {/* Filter Controls */}
+      <div className="filter-controls">
+        {filterOptions.map(status => (
+          <button
+            key={status}
+            className={`filter-button ${activeFilter === status ? 'active' : ''}`}
+            onClick={() => setActiveFilter(status)}
+          >
+            {status}
+          </button>
+        ))}
+      </div>
+
       {/* In Progress Section */}
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('InProgress')}>
-          <span>In Progress ({inProgressTasks.length})</span>
+          <span>In Progress <span style={{ fontWeight: 'bold' }}>({inProgressTasks.length})</span></span>
           <span>{sectionsVisible.InProgress ? '▲' : '▼'}</span> {/* Dynamic Icon */}
         </button>
         {sectionsVisible.InProgress && ( /* Conditional Rendering */
@@ -92,7 +112,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
       {/* Pending Section */}
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('Pending')}>
-          <span>Pending ({pendingTasks.length})</span>
+          <span>Pending <span style={{ fontWeight: 'bold' }}>({pendingTasks.length})</span></span>
           <span>{sectionsVisible.Pending ? '▲' : '▼'}</span> {/* Dynamic Icon */}
         </button>
         {sectionsVisible.Pending && ( /* Conditional Rendering */
@@ -113,7 +133,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
        {/* Completed Section */}
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('Completed')}>
-          <span>Completed ({completedTasks.length})</span>
+          <span>Completed <span style={{ fontWeight: 'bold' }}>({completedTasks.length})</span></span>
           <span>{sectionsVisible.Completed ? '▲' : '▼'}</span> {/* Dynamic Icon */}
         </button>
         {sectionsVisible.Completed && ( /* Conditional Rendering */

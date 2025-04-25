@@ -1,0 +1,90 @@
+.task-list-container {
+  /* Styles for the main list container */
+  padding: 0 20px;
+}
+
+.search-input {
+  width: 100%; /* Take full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 10px 10px 10px 35px; /* Top, Right, Bottom, Left - Added left padding for icon */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  /* Add background image for search icon */
+  background-image: url('/icons/Magnifier.png'); /* Adjust path if using png */
+  background-repeat: no-repeat;
+  background-position: 10px center; /* Position icon 10px from left, vertically centered */
+  background-size: 16px 16px; /* Adjust size as needed */
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center; /* Or flex-start if preferred */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-button:hover {
+  background-color: #f0f0f0;
+  border-color: #bbb;
+}
+
+.filter-button.active {
+  background-color: #0056b3; /* Use theme blue color */
+  color: #ffffff;
+  border-color: #0056b3;
+  font-weight: 500;
+}
+
+.task-section {
+  margin-bottom: 15px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px; /* Adjust padding */
+  background-color: #F3F6F9; /* Specific light blue background */
+  border-radius: 6px; /* Keep radius */
+  cursor: pointer;
+  font-weight: 500;
+  color: #333; /* Darker text color */
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.section-header span:first-child {
+  /* Style for the text like 'In Progress (2)' */
+}
+
+.section-header span:last-child {
+  /* Style for the chevron icon */
+  color: #0056b3; /* Blue color for chevron */
+  font-weight: bold;
+}
+
+.task-items {
+  padding: 10px 0 0 0; /* Add 10px padding top, remove others */
+}
+
+.task-item-placeholder {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+} 

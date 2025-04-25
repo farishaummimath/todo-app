@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import './style.css'; // Updated CSS import path
 
 interface HeaderProps {
   title: string;

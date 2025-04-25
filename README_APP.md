@@ -4,15 +4,19 @@ This is a simple yet functional Todo application built using React, TypeScript, 
 
 ## Features Implemented
 
-*   **Task Listing:** Displays tasks grouped by status (Pending, In Progress, Completed).
-*   **Task Details:** Shows task title, description, creation date, and status indicator (left-aligned).
-*   **Add Task:** Floating action button (+) opens a form to add new tasks (default status: Pending). The button is positioned within the main app container.
-*   **Edit Task:** Edit icon on task items opens a form to modify the task title and description (labels are left-aligned). Status display is also left-aligned.
+*   **Task Listing:** Displays tasks grouped by status (Pending, In Progress, Completed). Counts in headers are bolded.
+*   **Task Details:** Shows task title, description, creation date, and status indicator dot (right-aligned). Tasks are separated by divider lines.
+    *   **Avatar:** Each task has a circular avatar displaying the capitalized first letter of the title (blue outline, blue text).
+    *   **Hover Effect:** Task items get a light grey background (`#F7F7F7`) on hover.
+*   **Add Task:** Floating action button (+) opens a form to add new tasks (default status: Pending). The button is positioned inside the main app container.
+*   **Edit Task:** Edit icon on task items opens a form to modify the task title, description, and status.
+    *   **Form Layout:** Labels are left-aligned. Cancel/Update buttons are positioned at the left/right ends of the form actions area.
 *   **Change Status:** Task status can be changed using the status dropdown menu within the Edit Task form.
 *   **Delete Task:** Delete icon on task items removes the task.
 *   **Persistence:** Tasks are saved to the browser's local storage and persist across page reloads.
-*   **Search:** Search input filters the task list by title or description (case-insensitive).
-*   **Expand/Collapse Sections:** Task list sections (Pending, Completed) can be expanded or collapsed.
+*   **Search:** Search input (with magnifying glass icon) filters the task list by title or description (case-insensitive).
+*   **Filtering:** Buttons below search allow filtering tasks by status (All, Pending, In Progress, Completed).
+*   **Expand/Collapse Sections:** Task list sections (Pending, Completed) can be expanded or collapsed. Section headers have a light blue (`#F3F6F9`) background.
 *   **Custom Icons:** Uses custom icons for edit/delete actions.
 *   **Custom Font:** Uses the 'Jost' font.
 *   **Reusable Header:** A consistent header is used across list, add, and edit views.
@@ -20,11 +24,12 @@ This is a simple yet functional Todo application built using React, TypeScript, 
 ## Design & Implementation Notes
 
 *   **Framework/Tooling:** Built with React and TypeScript, using Vite for fast development and build.
-*   **Component Structure:** The application is broken down into reusable components (`App`, `TaskList`, `TaskItem`, `AddTaskForm`, `EditTaskForm`, `Header`) located in `src/components`.
-*   **State Management:** Uses React's `useState` and `useEffect` hooks within the main `App` component to manage the task list, application view state, and persistence.
-*   **Styling:** Uses plain CSS with separate files for each component (`src/components/*.css`), plus global styles in `src/App.css` and `src/index.css`.
+*   **Component Structure:** Components are organized into feature folders within `src/components`. Each folder contains the component's `.tsx` file and its specific `style.css`.
+    *   Folders: `AddTaskForm`, `EditTaskForm`, `Header`, `TaskItem`, `TaskList`.
+*   **State Management:** Uses React's `useState` and `useEffect` hooks within the main `App` component to manage the task list, application view state, and persistence. `TaskList` uses `useState` for search, filtering, and section visibility.
+*   **Styling:** Uses plain CSS with separate `style.css` files for each component, plus global styles in `src/App.css` and `src/index.css`.
 *   **Persistence:** Leverages the browser's `localStorage` API (via `useEffect` in `App.tsx`) to save and load tasks.
-*   **Shared Code:** Common types (`Task`, `TaskStatus`) should ideally be in `src/types.ts` (Refactoring Opportunity), and helper functions (`getStatusColor`) in `src/utils.ts` (Refactoring Opportunity).
+*   **Shared Code:** Common types (`Task`, `TaskStatus`, `FilterStatus`) and helper functions (`getStatusColor`) should ideally be extracted into shared files (e.g., `src/types.ts`, `src/utils.ts`) - (Refactoring Opportunity).
 *   **Floating Action Button (FAB):** Positioned absolutely within the main container (`.app-container`).
 
 ## Setup and Running

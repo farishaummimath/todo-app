@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddTaskForm.css';
+import './style.css'; // Updated CSS import
 
 // Re-define Task type (or import from shared location)
 type Task = {
@@ -27,9 +27,6 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onCancel }) => {
       return;
     }
     onAddTask({ title, description });
-    // Optionally clear form fields after adding
-    // setTitle('');
-    // setDescription('');
   };
 
   return (
@@ -47,7 +44,8 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onCancel }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="task-description">Enter the description</label>
+          {/* Updated Label */}
+          <label htmlFor="task-description">Description</label>
           <textarea
             id="task-description"
             value={description}

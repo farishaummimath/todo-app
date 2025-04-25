@@ -1,8 +1,9 @@
 .task-item {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  margin-bottom: 12px;
+  /* border: 1px solid #e0e0e0; */ /* REMOVED */
+  border-bottom: 1px solid #e0e0e0; /* Add divider line below */
+  border-radius: 0; /* Remove radius as border is gone */
+  margin-bottom: 0; /* Remove bottom margin, spacing handled by divider/padding */
   padding: 12px 15px;
   display: flex;
   justify-content: space-between;
@@ -11,8 +12,16 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
+/* Remove divider from the last task item in a list */
+/* This rule needs to be adjusted based on the parent structure in TaskList.tsx */
+/* Assuming .task-items is still the immediate parent */
+.task-items .task-item:last-child {
+  border-bottom: none;
+}
+
 .task-item:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #F7F7F7;
 }
 
 .task-item-main {
@@ -21,14 +30,23 @@
   flex-grow: 1; /* Allow main content to take available space */
 }
 
-.status-indicator {
-  min-width: 18px; /* Fixed width for the circle */
-  height: 18px;
+/* Add styles for the new Task Avatar */
+.task-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px; /* Adjusted size slightly to account for border */
+  height: 30px;  /* Adjusted size slightly */
   border-radius: 50%;
-  margin-right: 12px;
-  margin-top: 4px; /* Align with the first line of text */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
-  flex-shrink: 0; /* Prevent shrinking */
+  background-color: transparent;
+  border: 2px solid #0056b3; /* Blue border */
+  color: #0056b3; /* Blue text color */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 12px; /* Keep spacing */
+  margin-top: 2px; /* Adjust vertical alignment slightly */
+  flex-shrink: 0;
+  text-transform: uppercase;
 }
 
 .task-details {

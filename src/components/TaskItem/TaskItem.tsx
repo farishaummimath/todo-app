@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskItem.css';
+import './style.css'; // Updated CSS import path
 
 // Re-define Task type (consider moving to a shared types file later)
 type Task = {
@@ -18,7 +18,12 @@ interface TaskItemProps {
   onStatusChange: (id: number, newStatus: Task['status']) => void; // Function to handle status change
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit, onDelete, onStatusChange }) => {
+const TaskItem: React.FC<TaskItemProps> = ({ 
+  task, 
+  onEdit, 
+  onDelete, 
+  // onStatusChange // Commented out as it's not directly used in TaskItem anymore
+ }) => {
   // Function to format the date
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
@@ -39,15 +44,14 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit, onDelete, onStatusCha
     }
   };
 
+  // Get the first letter of the title for the avatar
+  const firstLetter = task.title ? task.title.charAt(0).toUpperCase() : '?';
+
   return (
     <div className={`task-item ${task.status === 'Completed' ? 'completed' : ''}`}>
       <div className="task-item-main">
-         {/* Status indicator circle - Not Clickable */}
-         <span
-           className="status-indicator"
-           style={{ backgroundColor: getStatusColor(task.status) }}
-           title={`Status: ${task.status}`}
-         ></span>
+         {/* Replace Status Indicator with Avatar */}
+         <span className="task-avatar">{firstLetter}</span>
 
          {/* Task Details */}
          <div className="task-details">
@@ -56,7 +60,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit, onDelete, onStatusCha
           <p className="task-date">{formatDate(task.createdAt)}</p>
         </div>
 
-         {/* Status Label with Dot */}
+         {/* Status Label with Dot (still uses getStatusColor) */}
          <div className="task-status-label">
            <span className="status-dot" style={{ backgroundColor: getStatusColor(task.status) }}></span>
            {task.status}
@@ -66,14 +70,15 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit, onDelete, onStatusCha
       {/* Action buttons shown on hover (implement hover effect in CSS) */}
       <div className="task-actions">
         <button onClick={() => onEdit(task.id)} className="action-button edit-button" title="Edit Task">
-          <img src="./icons/Pencil.png" alt="Edit" />
+          {/* Ensure icon path is relative to public folder */} 
+          <img src="/icons/Pencil.png" alt="Edit" /> 
         </button>
         <button onClick={() => onDelete(task.id)} className="action-button delete-button" title="Delete Task">
-          <img src="./icons/Trash.png" alt="Delete" />
+          <img src="/icons/Trash.png" alt="Delete" />
         </button>
       </div>
     </div>
   );
 };
 
-export default TaskItem;
+export default TaskItem; 
