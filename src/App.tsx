@@ -5,20 +5,18 @@ import AddTaskForm from './components/AddTaskForm/AddTaskForm'
 import EditTaskForm from './components/EditTaskForm/EditTaskForm'
 import Header from './components/Header/Header'
 
-// Define the Task type
 type Task = {
   id: number;
   title: string;
-  description: string; // Added description based on the design
-  status: 'Pending' | 'In Progress' | 'Completed'; // Status based on the design
-  createdAt: Date; // Added creation date based on the design
+  description: string;
+  status: 'Pending' | 'In Progress' | 'Completed';
+  createdAt: Date;
 };
 
 // Key for local storage
 const LOCAL_STORAGE_KEY = 'react-todo-app-tasks';
 
 function App() {
-  // State for tasks - Initialize from localStorage or default
   const [tasks, setTasks] = useState<Task[]>(() => {
     const storedTasks = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (storedTasks) {
@@ -31,8 +29,7 @@ function App() {
         })) as Task[]; // Explicitly cast the result of map
       } catch (error) {
         console.error("Error parsing tasks from localStorage:", error);
-        // Fallback to default tasks if parsing fails
-        // No need to return here, will fall through to default below
+        // Fallback handled by returning default tasks below
       }
     }
     // Default tasks if nothing in localStorage or if parsing failed
@@ -41,20 +38,18 @@ function App() {
       { id: 2, title: 'Lorem Ipsum Task 2', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', status: 'In Progress', createdAt: new Date() },
       { id: 3, title: 'Pending Task 1', description: 'Another task description', status: 'Pending', createdAt: new Date() },
       { id: 4, title: 'Completed Task 1', description: 'Finished this one', status: 'Completed', createdAt: new Date() },
-    ] as Task[]; // Cast default tasks as well for consistency
+    ] as Task[]; // Cast needed here as initial value shape might differ slightly
   });
 
-  // State to control which view is active ('list' or 'add')
   const [currentView, setCurrentView] = useState<'list' | 'add' | 'edit'>('list');
-  // State to hold the ID of the task being edited
   const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
 
   // Effect to save tasks to localStorage whenever they change
   useEffect(() => {
-    // Convert Date objects to strings for storage
+    // JSON.stringify automatically converts Date objects to ISO strings
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
     console.log('Tasks saved to localStorage');
-  }, [tasks]); // Dependency array includes tasks
+  }, [tasks]);
 
   // --- Handler Functions ---
   const handleEdit = (id: number) => {
@@ -77,26 +72,23 @@ function App() {
     );
   };
 
-  // Function to add a new task
   const handleAddTask = (newTaskData: Omit<Task, 'id' | 'createdAt' | 'status'>) => {
     const newTask: Task = {
       ...newTaskData,
-      id: Date.now(), 
-      status: 'Pending', // Default status for new tasks
+      id: Date.now(),
+      status: 'Pending',
       createdAt: new Date(),
     };
-    setTasks(prevTasks => [newTask, ...prevTasks]); // Add to the beginning of the list
-    setCurrentView('list'); // Switch back to the list view
+    setTasks(prevTasks => [newTask, ...prevTasks]);
+    setCurrentView('list');
     console.log('Added new task:', newTask);
   };
 
-  // Function to cancel adding/editing
   const handleCancel = () => {
     setCurrentView('list');
     setEditingTaskId(null);
   };
 
-  // Function to update an existing task
   const handleUpdateTask = (updatedTaskData: Omit<Task, 'createdAt' | 'status'>) => {
     setTasks(prevTasks =>
       prevTasks.map(task =>
@@ -105,15 +97,13 @@ function App() {
           : task
       )
     );
-    setCurrentView('list'); // Switch back to list view
-    setEditingTaskId(null); // Clear editing state
+    setCurrentView('list');
+    setEditingTaskId(null);
     console.log('Updated task:', updatedTaskData.id);
   };
 
-  // Find the task being edited (needed for passing to EditTaskForm)
   const taskToEdit = tasks.find(task => task.id === editingTaskId);
 
-  // Determine Header Title and Back Button visibility
   let headerTitle = 'TO-DO APP';
   let showBackButton = false;
 
@@ -130,7 +120,7 @@ function App() {
       <Header
         title={headerTitle}
         showBackButton={showBackButton}
-        onBack={handleCancel} // Pass handleCancel for the back action
+        onBack={handleCancel}
       />
 
       {/* Conditional Rendering based on currentView */}
@@ -155,11 +145,11 @@ function App() {
            taskToEdit={taskToEdit}
            onUpdateTask={handleUpdateTask}
            onStatusChange={handleStatusChange}
-           onCancel={handleCancel} // Keep onCancel here if needed for other logic, though header handles back
+           onCancel={handleCancel}
          />
       )}
        {currentView === 'edit' && !taskToEdit && (
-         // Handle case where task to edit wasn't found (optional)
+         // Handle case where task to edit wasn't found
          <div>
            <p>Error: Task not found.</p>
            <button onClick={handleCancel}>Back to List</button>

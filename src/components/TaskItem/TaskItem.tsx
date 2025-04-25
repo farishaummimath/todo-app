@@ -1,7 +1,6 @@
 import React from 'react';
-import './style.css'; // Updated CSS import path
+import './style.css'; 
 
-// Re-define Task type (consider moving to a shared types file later)
 type Task = {
   id: number;
   title: string;
@@ -48,7 +47,6 @@ const TaskItem: React.FC<TaskItemProps> = ({
   return (
     <div className={`task-item ${task.status === 'Completed' ? 'completed' : ''}`}>
       <div className="task-item-main">
-         {/* Replace Status Indicator with Avatar */}
          <span className="task-avatar">{firstLetter}</span>
 
          {/* Task Details */}
@@ -58,18 +56,17 @@ const TaskItem: React.FC<TaskItemProps> = ({
           <p className="task-date">{formatDate(task.createdAt)}</p>
         </div>
 
-         {/* Status Label with Dot (still uses getStatusColor) */}
+         {/* Status Label with Dot */}
          <div className="task-status-label">
            <span className="status-dot" style={{ backgroundColor: getStatusColor(task.status) }}></span>
            {task.status}
          </div>
       </div>
 
-      {/* Action buttons shown on hover (implement hover effect in CSS) */}
+      {/* Action buttons */}
       <div className="task-actions">
         <button onClick={() => onEdit(task.id)} className="action-button edit-button" title="Edit Task">
-          {/* Ensure icon path is relative to public folder */} 
-          <img src="/icons/Pencil.png" alt="Edit" /> 
+          <img src="/icons/Pencil.png" alt="Edit" />
         </button>
         <button onClick={() => onDelete(task.id)} className="action-button delete-button" title="Delete Task">
           <img src="/icons/Trash.png" alt="Delete" />

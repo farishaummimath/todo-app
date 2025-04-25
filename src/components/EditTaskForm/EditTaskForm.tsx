@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../AddTaskForm/style.css'; // Use AddTaskForm styles as base
 import './style.css'; // Import specific styles
 
-// Re-define Task type
 type Task = {
   id: number;
   title: string;
@@ -35,7 +34,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
   const [currentStatus, setCurrentStatus] = useState<Task['status']>(taskToEdit.status);
   const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
 
-  // Update state if the taskToEdit prop changes (e.g., user clicks edit on a different task)
+  // Update state if the taskToEdit prop changes
   useEffect(() => {
     setTitle(taskToEdit.title);
     setDescription(taskToEdit.description);
@@ -48,7 +47,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskToEdit, onUpdateTask, o
       alert('Please enter a task title.');
       return;
     }
-    // Pass back the full task data including the original ID
     onUpdateTask({ id: taskToEdit.id, title, description });
   };
 

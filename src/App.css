@@ -20,8 +20,7 @@ body {
   min-height: 450px;
 }
 
-/* Header is now a component, styles moved to Header/style.css */
-/* Remove original .app-header rules if any linger */
+/* Header styles are in Header/style.css */
 
 /* Floating Action Button (FAB) */
 .fab {
@@ -51,12 +50,12 @@ body {
   background-color: #004494;
 }
 
-/* Responsive adjustment for FAB */
+/* Responsive adjustments */
 @media (max-width: 540px) {
   .app-container {
       margin: 10px;
-      padding: 0 15px 80px 15px; /* Adjusted padding for mobile */
-      width: auto; /* Allow container to resize */
+      padding: 0 15px 80px 15px;
+      width: auto;
   }
   .fab {
     bottom: 15px;
@@ -65,7 +64,7 @@ body {
     height: 55px;
     font-size: 1.8rem;
   }
-  /* Remove potentially conflicting header margin adjustment */
+  /* Ensure no conflicts with header styles */
   /* .app-header {
     margin: -15px -15px 15px -15px;
   } */

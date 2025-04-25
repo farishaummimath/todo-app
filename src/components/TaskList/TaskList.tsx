@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './style.css'; // Updated CSS import
-import TaskItem from '../TaskItem/TaskItem'; // Updated TaskItem import path
+import './style.css'; 
+import TaskItem from '../TaskItem/TaskItem';
 
-// Define the Task type again (or import from App.tsx if refactored later)
 type Task = {
   id: number;
   title: string;
@@ -91,9 +90,9 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('InProgress')}>
           <span>In Progress <span style={{ fontWeight: 'bold' }}>({inProgressTasks.length})</span></span>
-          <span>{sectionsVisible.InProgress ? '▲' : '▼'}</span> {/* Dynamic Icon */}
+          <span>{sectionsVisible.InProgress ? '▲' : '▼'}</span>
         </button>
-        {sectionsVisible.InProgress && ( /* Conditional Rendering */
+        {sectionsVisible.InProgress && (
           <div className="task-items">
             {inProgressTasks.map(task => (
               <TaskItem
@@ -101,7 +100,6 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
                 task={task}
                 onEdit={onEdit}
                 onDelete={onDelete}
-        
               />
             ))}
           </div>
@@ -112,9 +110,9 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('Pending')}>
           <span>Pending <span style={{ fontWeight: 'bold' }}>({pendingTasks.length})</span></span>
-          <span>{sectionsVisible.Pending ? '▲' : '▼'}</span> {/* Dynamic Icon */}
+          <span>{sectionsVisible.Pending ? '▲' : '▼'}</span>
         </button>
-        {sectionsVisible.Pending && ( /* Conditional Rendering */
+        {sectionsVisible.Pending && (
           <div className="task-items">
             {pendingTasks.map(task => (
               <TaskItem
@@ -132,17 +130,17 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
       <div className="task-section">
         <button className="section-header" onClick={() => toggleSection('Completed')}>
           <span>Completed <span style={{ fontWeight: 'bold' }}>({completedTasks.length})</span></span>
-          <span>{sectionsVisible.Completed ? '▲' : '▼'}</span> {/* Dynamic Icon */}
+          <span>{sectionsVisible.Completed ? '▲' : '▼'}</span>
         </button>
-        {sectionsVisible.Completed && ( /* Conditional Rendering */
+        {sectionsVisible.Completed && (
           <div className="task-items">
             {completedTasks.map(task => (
-               <TaskItem
+              <TaskItem
                 key={task.id}
                 task={task}
                 onEdit={onEdit}
                 onDelete={onDelete}
-               />
+              />
             ))}
           </div>
         )}

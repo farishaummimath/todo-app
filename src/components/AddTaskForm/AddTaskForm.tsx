@@ -23,7 +23,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onCancel }) => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (!title.trim()) {
-      alert('Please enter a task title.'); // Basic validation
+      alert('Please enter a task title.');
       return;
     }
     onAddTask({ title, description });
@@ -44,7 +44,6 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onCancel }) => {
           />
         </div>
         <div className="form-group">
-          {/* Updated Label */}
           <label htmlFor="task-description">Description</label>
           <textarea
             id="task-description"

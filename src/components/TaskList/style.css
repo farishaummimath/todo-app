@@ -1,26 +1,24 @@
 .task-list-container {
-  /* Styles for the main list container */
   padding: 0 20px;
 }
 
 .search-input {
-  width: 100%; 
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  padding: 10px 10px 10px 35px; /* Top, Right, Bottom, Left - Added left padding for icon */
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border */
+  padding: 10px 10px 10px 35px; /* Add left padding for icon */
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  /* Add background image for search icon */
-  background-image: url('/icons/Magnifier.png'); /* Adjust path if using png */
+  background-image: url('/icons/Magnifier.png');
   background-repeat: no-repeat;
-  background-position: 10px center; /* Position icon 10px from left, vertically centered */
-  background-size: 16px 16px; /* Adjust size as needed */
+  background-position: 10px center;
+  background-size: 16px 16px;
 }
 
 .filter-controls {
   display: flex;
-  justify-content: center; /* Or flex-start if preferred */
+  justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -42,7 +40,7 @@
 }
 
 .filter-button.active {
-  background-color: #0056b3; /* Use theme blue color */
+  background-color: #0056b3;
   color: #ffffff;
   border-color: #0056b3;
   font-weight: 500;
@@ -57,23 +55,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background-color: #F3F6F9; /* Specific light blue background */
+  background-color: #F3F6F9;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  color: #333; /* Darker text color */
+  color: #333;
   width: 100%;
-  box-sizing: border-box; /* Include padding/border in width */
-  border: none; /* Explicitly remove default button border */
+  box-sizing: border-box;
+  border: none;
 }
 
 .section-header span:first-child {
-  /* Style for the text like 'In Progress (2)' */
+  /* No specific styles needed currently */
 }
 
 .section-header span:last-child {
-  /* Style for the chevron icon */
-  color: #0056b3; /* Blue color for chevron */
+  color: #0056b3;
   font-weight: bold;
 }
 

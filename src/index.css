@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
-/* Reset or base styles can go here if needed */
+/* Global styles and resets */
 
-/* Apply Jost font globally */
 :root {
   font-family: 'Jost', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
