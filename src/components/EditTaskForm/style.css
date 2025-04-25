@@ -1,10 +1,8 @@
-/* Styles specific to EditTaskForm, like the status dropdown */
 .status-group {
-  position: relative; /* Needed for dropdown positioning */
-  margin-bottom: 15px; /* Ensure consistent spacing like other form groups */
+  position: relative;
+  margin-bottom: 15px;
 }
 
-/* Apply label styles consistent with AddTaskForm */
 .status-group label {
   display: block;
   margin-bottom: 5px;
@@ -30,8 +28,8 @@
   justify-content: space-between;
   align-items: center;
   font-family: inherit;
-  gap: 8px; /* Add gap for spacing */
-  box-sizing: border-box; /* Ensure padding/border included */
+  gap: 8px;
+  box-sizing: border-box;
 }
 
 .status-select-display:hover {
@@ -40,14 +38,14 @@
 
 .status-dropdown {
   position: absolute;
-  top: 100%; /* Position below the display button */
+  top: 100%;
   left: 0;
   right: 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   border-radius: 0 0 4px 4px;
-  z-index: 10; /* Ensure dropdown is above other elements */
+  z-index: 10;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
@@ -63,21 +61,21 @@
   font-size: 1rem;
   font-family: inherit;
   gap: 8px;
-  justify-content: flex-start; /* Align items to start */
+  justify-content: flex-start;
 }
 
 .status-option-text {
-  flex-grow: 1; /* Allow text to take available space */
+  flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .checkmark {
-  margin-left: auto; /* Push checkmark to the right */
+  margin-left: auto;
   font-size: 1.1rem;
-  color: #0056b3; /* Match header blue */
-  padding-left: 10px; /* Space before checkmark */
+  color: #0056b3;
+  padding-left: 10px;
 }
 
 .status-option:hover {
@@ -89,11 +87,11 @@
   font-weight: 500;
 }
 
-.status-dot { /* Consider moving to a shared file */
+.status-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin-right: 8px; /* Adjusted spacing */
+  margin-right: 8px;
   display: inline-block;
-  flex-shrink: 0; /* Prevent dot from shrinking */
-} 
+  flex-shrink: 0;
+}

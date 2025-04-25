@@ -15,14 +15,14 @@ interface TaskItemProps {
   task: Task;
   onEdit: (id: number) => void; // Function to handle editing
   onDelete: (id: number) => void; // Function to handle deletion
-  onStatusChange: (id: number, newStatus: Task['status']) => void; // Function to handle status change
+  // onStatusChange: (id: number, newStatus: Task['status']) => void; // REMOVED
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({ 
   task, 
   onEdit, 
   onDelete, 
-  // onStatusChange // Commented out as it's not directly used in TaskItem anymore
+  // onStatusChange // REMOVED from destructuring too
  }) => {
   // Function to format the date
   const formatDate = (date: Date) => {

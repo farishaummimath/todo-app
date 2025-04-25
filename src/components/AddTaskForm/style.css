@@ -1,7 +1,7 @@
 .add-task-container {
-  padding: 0 20px 20px 20px; /* Add padding back now that header is external */
-  background-color: #fff; /* Ensure white background for form area */
-  border-radius: 0 0 8px 8px; /* Keep bottom rounding if applicable */
+  padding: 0 20px 20px 20px;
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
 }
 
 /* Remove old header styles if they exist (they shouldn't after previous refactor) */
@@ -9,9 +9,7 @@
 /* .back-button { ... } */
 
 .add-task-form {
-  /* padding: 20px; */ /* Padding is now on container */
-  /* background-color: #fff; */ /* Background now on container */
-  /* border-radius: 0 0 8px 8px; */ /* Radius now on container */
+  /* Base form structure */
 }
 
 .form-group {
@@ -28,7 +26,6 @@
 
 .form-group input[type="text"],
 .form-group textarea {
-  /* width: calc(100% - 22px); */ /* Use box-sizing */
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
@@ -69,11 +66,11 @@
 }
 
 .add-button {
-  background-color: #0056b3; /* Match header blue */
+  background-color: #0056b3;
   color: white;
   border: none;
 }
 
 .add-button:hover {
-  background-color: #004494; /* Darker blue on hover */
+  background-color: #004494;
 } 

@@ -1,20 +1,16 @@
 .task-item {
   background-color: #ffffff;
-  /* border: 1px solid #e0e0e0; */ /* REMOVED */
-  border-bottom: 1px solid #e0e0e0; /* Add divider line below */
-  border-radius: 0; /* Remove radius as border is gone */
-  margin-bottom: 0; /* Remove bottom margin, spacing handled by divider/padding */
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  margin-bottom: 0;
   padding: 12px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* Needed for absolute positioning of actions */
+  position: relative;
   transition: box-shadow 0.2s ease-in-out;
 }
 
-/* Remove divider from the last task item in a list */
-/* This rule needs to be adjusted based on the parent structure in TaskList.tsx */
-/* Assuming .task-items is still the immediate parent */
 .task-items .task-item:last-child {
   border-bottom: none;
 }
@@ -26,33 +22,32 @@
 
 .task-item-main {
   display: flex;
-  align-items: flex-start; /* Align items to the top */
-  flex-grow: 1; /* Allow main content to take available space */
+  align-items: flex-start;
+  flex-grow: 1;
 }
 
-/* Add styles for the new Task Avatar */
 .task-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 30px; /* Adjusted size slightly to account for border */
-  height: 30px;  /* Adjusted size slightly */
+  min-width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: transparent;
-  border: 2px solid #0056b3; /* Blue border */
-  color: #0056b3; /* Blue text color */
+  border: 2px solid #0056b3;
+  color: #0056b3;
   font-size: 1rem;
   font-weight: 600;
-  margin-right: 12px; /* Keep spacing */
-  margin-top: 2px; /* Adjust vertical alignment slightly */
+  margin-right: 12px;
+  margin-top: 2px;
   flex-shrink: 0;
   text-transform: uppercase;
 }
 
 .task-details {
-  flex-grow: 1; /* Allow details to expand */
-  margin-right: 15px; /* Space before status label */
-  text-align: left; /* Ensure text is left-aligned */
+  flex-grow: 1;
+  margin-right: 15px;
+  text-align: left;
 }
 
 .task-title {
@@ -78,38 +73,38 @@
 .task-status-label {
   font-size: 0.85rem;
   font-weight: 500;
-  white-space: nowrap; /* Prevent status from wrapping */
-  margin-left: auto; /* Push status to the right */
-  padding-left: 10px; /* Ensure space from description */
-  align-self: flex-start; /* Align with the top */
+  white-space: nowrap;
+  margin-left: auto;
+  padding-left: 10px;
+  align-self: flex-start;
   margin-top: 4px;
-  display: flex; /* Use flex to align dot and text */
+  display: flex;
   align-items: center;
-  color: #555; /* Default text color */
+  color: #555;
 }
 
 .status-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin-right: 6px; /* Space between dot and text */
+  margin-right: 6px;
   display: inline-block;
 }
 
 .task-actions {
-  display: none; /* Hidden by default */
-  position: absolute; /* Position relative to .task-item */
+  display: none;
+  position: absolute;
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.9); /* Slight background */
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 4px;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .task-item:hover .task-actions {
-  display: flex; /* Show on hover */
+  display: flex;
   gap: 5px;
 }
 
@@ -135,9 +130,8 @@
   opacity: 0.7;
 }
 
-/* Style for completed tasks (example) */
 .task-item.completed .task-title,
 .task-item.completed .task-description {
   text-decoration: line-through;
   color: #888;
-} 
+}

@@ -61,7 +61,6 @@ function App() {
     console.log('Attempting to edit task:', id);
     setEditingTaskId(id);
     setCurrentView('edit');
-    // TODO: Need an EditTaskForm component
   };
 
   const handleDelete = (id: number) => {
