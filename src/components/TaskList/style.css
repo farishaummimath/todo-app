@@ -4,7 +4,7 @@
 }
 
 .search-input {
-  width: 100%; /* Take full width */
+  width: 100%; 
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   padding: 10px 10px 10px 35px; /* Top, Right, Bottom, Left - Added left padding for icon */
   margin-bottom: 20px;
@@ -56,13 +56,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px; /* Adjust padding */
+  padding: 10px 15px;
   background-color: #F3F6F9; /* Specific light blue background */
-  border-radius: 6px; /* Keep radius */
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
   color: #333; /* Darker text color */
-  width: 100%; /* Ensure it takes full width */
+  width: 100%;
   box-sizing: border-box; /* Include padding/border in width */
   border: none; /* Explicitly remove default button border */
 }
@@ -78,8 +78,5 @@
 }
 
 .task-items {
-  padding-top: 10px; /* Space below header */
+  padding-top: 10px;
 }
-
-/* Removed unused placeholder */
-/* .task-item-placeholder { ... } */ 

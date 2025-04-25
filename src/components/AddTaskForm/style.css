@@ -4,10 +4,6 @@
   border-radius: 0 0 8px 8px;
 }
 
-/* Remove old header styles if they exist (they shouldn't after previous refactor) */
-/* .add-task-header { ... } */
-/* .back-button { ... } */
-
 .add-task-form {
   /* Base form structure */
 }

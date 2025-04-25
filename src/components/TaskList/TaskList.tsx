@@ -16,7 +16,6 @@ interface TaskListProps {
   tasks: Task[];
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
-  onStatusChange: (id: number, newStatus: Task['status']) => void;
 }
 
 // Type for section visibility state
@@ -30,7 +29,7 @@ type SectionVisibility = {
 type FilterStatus = 'All' | Task['status'];
 const filterOptions: FilterStatus[] = ['All', 'Pending', 'In Progress', 'Completed'];
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusChange }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
   // State for search query
   const [searchQuery, setSearchQuery] = useState('');
   // State for active status filter
@@ -102,7 +101,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
                 task={task}
                 onEdit={onEdit}
                 onDelete={onDelete}
-                onStatusChange={onStatusChange}
+        
               />
             ))}
           </div>
@@ -123,7 +122,6 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
                 task={task}
                 onEdit={onEdit}
                 onDelete={onDelete}
-                onStatusChange={onStatusChange}
               />
             ))}
           </div>
@@ -144,7 +142,6 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onStatusCh
                 task={task}
                 onEdit={onEdit}
                 onDelete={onDelete}
-                onStatusChange={onStatusChange}
                />
             ))}
           </div>

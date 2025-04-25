@@ -140,7 +140,6 @@ function App() {
             tasks={tasks}
             onEdit={handleEdit}
             onDelete={handleDelete}
-            onStatusChange={handleStatusChange}
           />
           {/* Floating Action Button to Add Task */}
           <button onClick={() => setCurrentView('add')} className="fab">+</button>

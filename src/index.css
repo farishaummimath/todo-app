@@ -5,33 +5,8 @@
 /* Apply Jost font globally */
 :root {
   font-family: 'Jost', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* Keep necessary rendering/smoothing */
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Remove default color scheme handling if app controls it */
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */ 
-  /* background-color: #242424; */ 
 }
 
 body {
   margin: 0;
-  /* Remove default flex/place-items if not desired */
-  /* display: flex; */
-  /* place-items: center; */
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
 }
-
-/* Remove default link, h1, button styles if components define their own */
-/* 
-a { ... }
-a:hover { ... }
-h1 { ... }
-button { ... }
-button:hover { ... }
-button:focus, button:focus-visible { ... }
-@media (prefers-color-scheme: light) { ... }
-*/
