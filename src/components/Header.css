@@ -1,0 +1,61 @@
+/* src/components/Header.css */
+.app-header {
+    background-color: #0056b3; /* Same blue as before */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    position: relative; /* Needed for absolute positioning of back button */
+    margin-bottom: 20px; /* Space below header */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Center title by default */
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    flex-grow: 1; /* Allow title to take space */
+    text-align: center; /* Ensure title stays centered */
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem; /* Make arrow larger */
+    cursor: pointer;
+    padding: 0 15px 0 0; /* Adjust padding */
+    position: absolute; /* Position absolutely */
+    left: 20px;       /* Align to the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    line-height: 1;
+}
+
+.back-button:hover {
+    opacity: 0.8;
+}
+
+/* Spacer element to help center the title when back button is present */
+.header-spacer {
+    width: 40px; /* Approximate width of the back button area */
+    visibility: hidden; /* Takes up space but isn't visible */
+}
+
+/* Adjustments for smaller screens if needed */
+@media (max-width: 600px) {
+    .app-header {
+        padding: 12px 15px;
+    }
+    .app-header h1 {
+        font-size: 1.4rem;
+    }
+    .back-button {
+        left: 15px;
+        font-size: 1.6rem;
+    }
+    .header-spacer {
+        width: 35px;
+    }
+} 

@@ -1,0 +1,92 @@
+/* Styles specific to EditTaskForm, like the status dropdown */
+.status-group {
+  position: relative; /* Needed for dropdown positioning */
+}
+
+.status-select-container {
+  position: relative;
+}
+
+.status-select-display {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+  gap: 8px; /* Add gap for spacing */
+}
+
+.status-select-display:hover {
+  border-color: #888;
+}
+
+
+
+.status-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the display button */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 10; /* Ensure dropdown is above other elements */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.status-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  gap: 8px;
+  justify-content: flex-start; /* Align items to start */
+}
+
+.status-option-text {
+  flex-grow: 1; /* Allow text to take available space */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.checkmark {
+  margin-left: auto; /* Push checkmark to the right */
+  font-size: 1.1rem;
+  color: #0056b3; /* Match header blue */
+  padding-left: 10px; /* Space before checkmark */
+}
+
+.status-option:hover {
+  background-color: #f0f0f0;
+}
+
+.status-option.selected {
+  background-color: #e0e0e0;
+  font-weight: 500;
+}
+
+.status-dot { /* Copied from TaskItem.css - consider moving to a shared file */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px; /* Adjusted spacing */
+  display: inline-block;
+  flex-shrink: 0; /* Prevent dot from shrinking */
+}
+
+/* Add any other styles specific to EditTaskForm below */ 

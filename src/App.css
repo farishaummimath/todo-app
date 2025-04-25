@@ -1,0 +1,127 @@
+/* Add application-wide styles here */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Light grey background similar to design */
+}
+
+.app-container {
+  width: 500px; /* Set fixed width */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff; /* White container background */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Needed for FAB positioning */
+  padding-bottom: 90px; /* Increased padding slightly for button space */
+  min-height: 450px; /* Add minimum height */
+}
+
+.app-header {
+  background-color: #0056b3; /* Dark blue header like the design */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px 8px 0 0; /* Match container radius */
+  margin: -20px -20px 20px -20px; /* Extend to container edges */
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* Floating Action Button (FAB) */
+.fab {
+  position: absolute; /* Position relative to app-container */
+  bottom: 20px;       /* Adjust position from bottom */
+  right: 20px;        /* Adjust position from right */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #0056b3; /* Match header blue */
+  color: white;
+  font-size: 2rem;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  transition: background-color 0.2s;
+  z-index: 10; /* Ensure it's above task list content */
+}
+
+.fab:hover {
+  background-color: #004494;
+}
+
+/* Responsive adjustment for FAB */
+@media (max-width: 540px) { /* Adjust breakpoint as needed */
+  .app-container {
+      margin: 10px;
+      padding: 15px;
+      padding-bottom: 80px; /* Ensure space */
+  }
+  .fab {
+    /* Keep positioning relative to container */
+    bottom: 15px;
+    right: 15px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.8rem;
+  }
+  .app-header {
+    margin: -15px -15px 15px -15px;
+  }
+}
+
+/* Add more styles as components are built */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

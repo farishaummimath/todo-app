@@ -1,0 +1,125 @@
+.task-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Needed for absolute positioning of actions */
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-item-main {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  flex-grow: 1; /* Allow main content to take available space */
+}
+
+.status-indicator {
+  min-width: 18px; /* Fixed width for the circle */
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 12px;
+  margin-top: 4px; /* Align with the first line of text */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.task-details {
+  flex-grow: 1; /* Allow details to expand */
+  margin-right: 15px; /* Space before status label */
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.task-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.task-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.task-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.task-status-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent status from wrapping */
+  margin-left: auto; /* Push status to the right */
+  padding-left: 10px; /* Ensure space from description */
+  align-self: flex-start; /* Align with the top */
+  margin-top: 4px;
+  display: flex; /* Use flex to align dot and text */
+  align-items: center;
+  color: #555; /* Default text color */
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px; /* Space between dot and text */
+  display: inline-block;
+}
+
+.task-actions {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position relative to .task-item */
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9); /* Slight background */
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:hover .task-actions {
+  display: flex; /* Show on hover */
+  gap: 5px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.action-button:hover img {
+  opacity: 0.7;
+}
+
+/* Style for completed tasks (example) */
+.task-item.completed .task-title,
+.task-item.completed .task-description {
+  text-decoration: line-through;
+  color: #888;
+} 
