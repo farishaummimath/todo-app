@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../AddTaskForm/style.css'; // Use AddTaskForm styles as base
-import './style.css'; // Import specific styles
+import '../AddTaskForm/style.css';
+import './style.css'; 
 
 type Task = {
   id: number;
